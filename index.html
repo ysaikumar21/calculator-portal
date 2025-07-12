@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🧮 Daily Life Calculator Suite</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-dark bg-primary mb-4">
+      <div class="container-fluid">
+        <span class="navbar-brand mb-0 h1">🧮 Daily Life Calculator Suite</span>
+      </div>
+    </nav>
+
+    <!-- Main Container-->
+    <div class="container">
+      <!-- Tabs navigation-->
+      <ul class="nav nav-pills mb-3" id="categoryTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link active"
+            id="financial-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#financial"
+            type="button"
+            role="tab"
+          >
+            💰 Financial
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link"
+            id="fitness-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#fitness"
+            type="button"
+            role="tab"
+          >
+            🏋️ Fitness
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link"
+            id="math-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#math"
+            type="button"
+            role="tab"
+          >
+            📐 Math
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link"
+            id="others-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#others"
+            type="button"
+            role="tab"
+          >
+            🧰 Others
+          </button>
+        </li>
+      </ul>
+
+      <!-- Tab Content-->
+      <div class="tab-content" id="categoryTabsContent">
+        <!-- Financial Tab-->
+        <div class="tab-pane fade show active" id="financial" role="tabpanel">
+          <div id="financialCalculators">
+            <!-- 💰 Simple Interest Calculator -->
+            <div class="card shadow mb-4">
+              <div class="card-header bg-success text-white">
+                Simple Interest Calculator
+              </div>
+              <div class="card-body">
+                <form id="simpleInterestForm">
+                  <div class="row mb-3">
+                    <div class="col-md-6">
+                      <label for="si-principal" class="form-label"
+                        >Principal Amount (₹)</label
+                      >
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="si-principal"
+                        required
+                        placeholder="Enter principal amount"
+                      />
+                    </div>
+                    <div class="col-md-6">
+                      <label for="si-rate" class="form-label"
+                        >Rate of Interest (% per annum)</label
+                      >
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="si-rate"
+                        required
+                        placeholder="Enter interest rate"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <div class="col-md-6">
+                      <label for="si-time" class="form-label"
+                        >Time Duration (Years)</label
+                      >
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="si-time"
+                        required
+                        placeholder="Enter years"
+                      />
+                    </div>
+                    <div class="col-md-6">
+                      <label for="si-months" class="form-label"
+                        >Additional Months (0–11)</label
+                      >
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="si-months"
+                        min="0"
+                        max="11"
+                        placeholder="Enter months"
+                      />
+                    </div>
+                  </div>
+
+                  <button type="submit" class="btn btn-primary">
+                    Calculate Simple Interest
+                  </button>
+                </form>
+                <div id="siResult" class="result-box mt-3"></div>
+              </div>
+            </div>
+
+            <!-- 💰 Compound Interest Calculator -->
+            <div class="card shadow mb-4">
+              <div class="card-header bg-info text-white">
+                Compound Interest Calculator
+              </div>
+              <div class="card-body">
+                <form id="compoundInterestForm">
+                  <div class="row mb-3">
+                    <div class="col-md-6">
+                      <label for="ci-principal" class="form-label"
+                        >Principal Amount (₹)</label
+                      >
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="ci-principal"
+                        required
+                        placeholder="Enter principal amount"
+                      />
+                    </div>
+                    <div class="col-md-6">
+                      <label for="ci-rate" class="form-label"
+                        >Rate of Interest (% per annum)</label
+                      >
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="ci-rate"
+                        required
+                        placeholder="Enter interest rate"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <div class="col-md-6">
+                      <label for="ci-time" class="form-label"
+                        >Time Duration (Years)</label
+                      >
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="ci-time"
+                        required
+                        placeholder="Enter years"
+                      />
+                    </div>
+                    <div class="col-md-6">
+                      <label for="ci-months" class="form-label"
+                        >Additional Months (0–11)</label
+                      >
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="ci-months"
+                        min="0"
+                        max="11"
+                        placeholder="Enter months"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <div class="col-md-6">
+                      <label for="ciFrequency" class="form-label"
+                        >Compounding Frequency</label
+                      >
+                      <select class="form-select" id="ciFrequency" required>
+                        <option value="1">Annually</option>
+                        <option value="2">Semi-Annually</option>
+                        <option value="4">Quarterly</option>
+                        <option value="12">Monthly</option>
+                        <option value="24">Semi-Monthly (twice a month)</option>
+                        <option value="26">Biweekly (every 2 weeks)</option>
+                        <option value="52">Weekly</option>
+                        <option value="365">Daily</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <button type="submit" class="btn btn-primary">
+                    Calculate Compound Interest
+                  </button>
+                </form>
+                <div id="ciResult" class="result-box mt-3"></div>
+              </div>
+            </div>
+
+            <!-- EMI Calculator-->
+            <div class="card shadow mb-4">
+              <div class="card-header bg-warning text-dark">EMI Calculator</div>
+              <div class="card-body">
+                <form id="emiform">
+                  <div class="row mb-3">
+                    <div class="col-md-4">
+                      <label for="loanAmount" class="form-label"
+                        >Loan Amount (₹)</label
+                      >
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="loanAmount"
+                        required
+                        placeholder="Enter loan amount"
+                      />
+                    </div>
+                    <div class="col-md-4">
+                      <label for="annualRate" class="form-label"
+                        >Annual Interest Rate (%)</label
+                      >
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="annualRate"
+                        required
+                        placeholder="Enter interest rate"
+                      />
+                    </div>
+                    <div class="col-md-4">
+                      <label for="loanTenure" class="form-label"
+                        >Loan Tenure (Months)</label
+                      >
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="loanTenure"
+                        required
+                        placeholder="Enter tenure in months"
+                      />
+                    </div>
+                  </div>
+                  <button type="submit" class="btn btn-primary">
+                    Calculate EMI
+                  </button>
+                </form>
+                <div id="emiResult" class="result-box mt-3"></div>
+              </div>
+            </div>
+
+            <!--💰 SIP Calculator-->
+            <div class="card shadow mb-4">
+              <div class="card-header bg-secondary text-white">
+                SIP Calculator
+              </div>
+              <div class="card-body">
+                <form id="sipForm">
+                  <div class="row mb-3">
+                    <div class="col-md-4">
+                      <label for="sipMonthly" class="form-label"
+                        >Monthly Investment (₹)</label
+                      >
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="sipMonthly"
+                        required
+                        placeholder="enter monthly amount"
+                      />
+                    </div>
+                    <div class="col-md-4">
+                      <label for="sipRate" class="form-label"
+                        >Expected Annual Return (%)</label
+                      >
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="sipRate"
+                        required
+                        placeholder="enter return rate"
+                      />
+                    </div>
+                    <div class="col-md-4">
+                      <label for="sipYears" class="form-label"
+                        >Investment Period (Years)</label
+                      >
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="sipYears"
+                        required
+                        placeholder="enter period in years"
+                      />
+                    </div>
+                  </div>
+                  <button type="submit" class="btn btn-primary">
+                    Calculate SIP Returns
+                  </button>
+                </form>
+                <div id="sipResult" class="result-box mt-3"></div>
+              </div>
+            </div>
+
+            <!-- 💰 Retirement Calculator -->
+            <div class="card shadow">
+              <div class="card-header bg-dark text-white">
+                Retirement Corpus Calculator
+              </div>
+              <div class="card-body">
+                <form id="retirementForm">
+                  <div class="row mb-3">
+                    <div class="col-md-4">
+                      <label for="currentAge" class="form-label"
+                        >Current Age</label
+                      >
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="currentAge"
+                        required
+                        placeholder="e.g. 30"
+                      />
+                    </div>
+                    <div class="col-md-4">
+                      <label for="retirementAge" class="form-label"
+                        >Retirement Age</label
+                      >
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="retirementAge"
+                        required
+                        placeholder="e.g. 60"
+                      />
+                    </div>
+                    <div class="col-md-4">
+                      <label for="monthlyExpense" class="form-label"
+                        >Current Monthly Expense (₹)</label
+                      >
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="monthlyExpense"
+                        required
+                        placeholder="e.g. 30000"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <div class="col-md-4">
+                      <label for="postRetirementYears" class="form-label"
+                        >Years After Retirement</label
+                      >
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="postRetirementYears"
+                        required
+                        placeholder="e.g 25"
+                      />
+                    </div>
+                    <div class="col-md-4">
+                      <label for="inflationRate" class="form-label"
+                        >Inflation Rate (%)</label
+                      >
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="inflationRate"
+                        required
+                        placeholder="e.g 6"
+                      />
+                    </div>
+                    <div class="col-md-4">
+                      <label for="returnRate" class="form-label"
+                        >Expected Return Rate (%)</label
+                      >
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="returnRate"
+                        required
+                        placeholder="e.g 8"
+                      />
+                    </div>
+                  </div>
+                  <button type="submit" class="btn btn-primary">
+                    Calculate Retirement Corpus
+                  </button>
+                </form>
+                <div id="retirementResult" class="result-box mt-3"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fitness tab-->
+        <div class="tab-pane fade" id="fitness" role="tabpanel">
+          <div id="fitnessCalculators">
+            <!-- BMI (Body Mass Index) Calculator -->
+            <div class="card shadow mb-4">
+              <div class="card-header bg-success text-white">
+                BMI (Body Mass Index) Calculator
+              </div>
+              <div class="card-body">
+                <form id="bmiForm">
+                  <div class="row mb-3">
+                    <div class="col-md-6">
+                      <label for="bmiWeight" class="form-label"
+                        >Weight (kg)</label
+                      >
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="bmiWeight"
+                        required
+                        placeholder="Enter your weight in kg"
+                      />
+                    </div>
+                    <div class="col-md-6">
+                      <label for="bmiHeightFeet" class="form-label"
+                        >Height (in feet, e.g. 5.6)</label
+                      >
+                      <input
+                        type="number"
+                        step="0.01"
+                        class="form-control"
+                        id="bmiHeightFeet"
+                        required
+                        placeholder="Enter your height in feet"
+                      />
+                    </div>
+                  </div>
+                  <button type="submit" class="btn btn-primary">
+                    Calculate BMI
+                  </button>
+                </form>
+                <div id="bmiResult" class="result-box mt-3"></div>
+              </div>
+            </div>
+
+            <!-- 🏋️ BMR Calculator -->
+            <div class="card shadow mb-4">
+              <div class="card-header bg-info text-white">
+                BMR (Basal Metabolic Rate) Calculator
+              </div>
+              <div class="card-body">
+                <form id="bmrForm">
+                  <div class="row mb-3">
+                    <div class="col-md-4">
+                      <label for="bmrAge" class="form-label">Age (years)</label>
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="bmrAge"
+                        required
+                        placeholder="e.g 30"
+                      />
+                    </div>
+                    <div class="col-md-4">
+                      <label for="bmrWeight" class="form-label"
+                        >Weight (kg)</label
+                      >
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="bmrWeight"
+                        required
+                        placeholder="e.g 70Kg"
+                      />
+                    </div>
+                    <div class="col-md-4">
+                      <label class="form-label">Gender</label>
+                      <select class="form-select" id="bmrGender">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <div class="col-md-6">
+                      <label for="bmrHeightFeet" class="form-label"
+                        >Height (feet)</label
+                      >
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="bmrHeightFeet"
+                        required
+                        placeholder="e.g. 5"
+                        min="0"
+                      />
+                    </div>
+                    <div class="col-md-6">
+                      <label for="bmrHeightInches" class="form-label"
+                        >Height (inches)</label
+                      >
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="bmrHeightInches"
+                        required
+                        placeholder="e.g. 7"
+                        min="0"
+                        max="11"
+                      />
+                    </div>
+                  </div>
+
+                  <button type="submit" class="btn btn-primary">
+                    Calculate BMR
+                  </button>
+                </form>
+                <div id="bmrResult" class="result-box mt-3"></div>
+              </div>
+            </div>
+
+            <!-- 🏋️ Calorie (TDEE) Calculator -->
+            <div class="card shadow mb-4">
+              <div class="card-header bg-warning text-dark">
+                Calorie Needs Calculator (TDEE)
+              </div>
+              <div class="card-body">
+                <form id="tdeeForm">
+                  <div class="row mb-3">
+                    <div class="col-md-4">
+                      <label for="tdeeBMR" class="form-label"
+                        >Your BMR (calories/day)</label
+                      >
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="tdeeBMR"
+                        required
+                        placeholder="e.g. 1668"
+                      />
+                      <small class="text-muted"
+                        >Use the BMR result above.</small
+                      >
+                    </div>
+                    <div class="col-md-8">
+                      <label for="activityLevel" class="form-label"
+                        >Activity Level</label
+                      >
+                      <select class="form-select" id="activityLevel" required>
+                        <option value="" disabled selected>
+                          Select your activity level
+                        </option>
+                        <option value="1.2">
+                          Sedentary (little or no exercise)
+                        </option>
+                        <option value="1.375">
+                          Lightly active (light exercise 1–3 days/week)
+                        </option>
+                        <option value="1.55">
+                          Moderately active (moderate exercise 3–5 days/week)
+                        </option>
+                        <option value="1.725">
+                          Very active (hard exercise 6–7 days/week)
+                        </option>
+                        <option value="1.9">
+                          Super active (very hard physical job or 2x training)
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <button type="submit" class="btn btn-primary">
+                    Calculate Calorie Needs
+                  </button>
+                </form>
+
+                <div id="tdeeResult" class="result-box mt-3"></div>
+              </div>
+            </div>
+
+            <!-- 🏋️ Body Fat % Calculator (US Navy Method) -->
+            <div class="card shadow mb-4">
+              <div class="card-header bg-danger text-white">
+                Body Fat Percentage Calculator
+              </div>
+              <div class="card-body">
+                <form id="bodyFatForm">
+                  <div class="row mb-3">
+                    <div class="col-md-3">
+                      <label for="bfGender" class="form-label">Gender</label>
+                      <select class="form-select" id="bfGender">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                      </select>
+                    </div>
+                    <div class="col-md-3">
+                      <label for="bfHeight" class="form-label"
+                        >Height (cm)</label
+                      >
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="bfHeight"
+                        required
+                        placeholder="e.g. 170"
+                      />
+                    </div>
+                    <div class="col-md-3">
+                      <label for="bfNeck" class="form-label">Neck (cm)</label>
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="bfNeck"
+                        required
+                        placeholder="e.g. 38"
+                      />
+                    </div>
+                    <div class="col-md-3">
+                      <label for="bfWaist" class="form-label">Waist (cm)</label>
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="bfWaist"
+                        required
+                        placeholder="e.g. 85"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="row mb-3" id="hipField" style="display: none">
+                    <div class="col-md-3">
+                      <label for="bfHip" class="form-label">Hip (cm)</label>
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="bfHip"
+                        placeholder="e.g. 95"
+                      />
+                    </div>
+                  </div>
+
+                  <button type="submit" class="btn btn-primary">
+                    Calculate Body Fat %
+                  </button>
+                </form>
+
+                <div id="bodyFatResult" class="result-box mt-3"></div>
+              </div>
+            </div>
+
+            <!-- 🏋️ Ideal Weight Calculator -->
+            <div class="card shadow">
+              <div class="card-header bg-secondary text-white">
+                Ideal Weight Calculator
+              </div>
+              <div class="card-body">
+                <form id="idealWeightForm">
+                  <div class="row mb-3">
+                    <div class="col-md-4">
+                      <label for="idealGender" class="form-label">Gender</label>
+                      <select class="form-select" id="idealGender">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                      </select>
+                    </div>
+                    <div class="col-md-4">
+                      <label for="idealHeightFeet" class="form-label"
+                        >Height (in feet)</label
+                      >
+                      <input
+                        type="number"
+                        step="0.01"
+                        class="form-control"
+                        id="idealHeightFeet"
+                        required
+                        placeholder="e.g. 5.6"
+                      />
+                    </div>
+                  </div>
+
+                  <button type="submit" class="btn btn-primary">
+                    Calculate Ideal Weight
+                  </button>
+                </form>
+
+                <div id="idealWeightResult" class="result-box mt-3"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Math Tab-->
+        <div class="tab-pane fade" id="math" role="tabpanel">
+          <div class="mathCalculators">
+            <!-- Percentage, Average, etc. -->
+            <div class="card shadow mb-4">
+              <div class="card-header bg-primary text-white">
+                Percentage Calculator
+              </div>
+              <div class="card-body">
+                <form id="percentageForm">
+                  <div class="row mb-3">
+                    <div class="col-md-4">
+                      <label for="basevalue" class="form-label"
+                        >Base Value (Y)</label
+                      >
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="baseValue"
+                        required
+                        placeholder="e.g. 200"
+                      />
+                    </div>
+                    <div class="col-md-4">
+                      <label for="percentageValue" class="form-label"
+                        >Percentage (%)</label
+                      >
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="percentageValue"
+                        required
+                        placeholder="e.g. 15"
+                      />
+                    </div>
+                    <div class="col-md-4">
+                      <label for="operation" class="form-label"
+                        >Operation Type</label
+                      >
+                      <select class="form-select" id="operation" required>
+                        <option value="findPercentOf">Find X% of Y</option>
+                        <option value="findPercentWhat">
+                          X is what % of Y
+                        </option>
+                        <option value="increaseBy">Increase Y by X%</option>
+                        <option value="decreaseBy">Decrease Y by X%</option>
+                      </select>
+                    </div>
+                  </div>
+                  <button type="submit" class="btn btn-primary">
+                    Calculate
+                  </button>
+                </form>
+                <div id="percentageResult" class="result-box mt-3"></div>
+              </div>
+            </div>
+            <!-- 📐 Average Calculator -->
+            <div class="card shadow mb-4">
+              <div class="card-header bg-success text-white">
+                Average Calculator
+              </div>
+              <div class="card-body">
+                <form id="averageForm">
+                  <div class="mb-3">
+                    <label for="averageInput" class="form-label"
+                      >Enter numbers separated by commas</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="averageInput"
+                      required
+                      placeholder="e.g. 10, 20, 30, 40"
+                    />
+                  </div>
+                  <button type="submit" class="btn btn-primary">
+                    Calculate Average
+                  </button>
+                </form>
+                <div id="averageResult" class="result-box mt-3"></div>
+              </div>
+            </div>
+            <!-- 📐 Percentage Change Calculator -->
+            <div class="card shadow mb-4">
+              <div class="card-header bg-danger text-white">
+                Percentage Change Calculator
+              </div>
+              <div class="card-body">
+                <form id="percentageChangeForm">
+                  <div class="row mb-3">
+                    <div class="col-md-6">
+                      <label for="initialValue" class="form-label"
+                        >Initial Value</label
+                      >
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="initialValue"
+                        required
+                        placeholder="e.g. 100"
+                      />
+                    </div>
+                    <div class="col-md-6">
+                      <label for="finalValue" class="form-label"
+                        >Final Value</label
+                      >
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="finalValue"
+                        required
+                        placeholder="e.g. 120"
+                      />
+                    </div>
+                  </div>
+                  <button type="submit" class="btn btn-primary">
+                    Calculate Change
+                  </button>
+                </form>
+                <div id="percentageChangeResult" class="result-box mt-3"></div>
+              </div>
+            </div>
+            <!-- ➗ Ratio Simplifier Calculator -->
+            <div class="card shadow mb-4">
+              <div class="card-header bg-secondary text-white">
+                Ratio Simplifier Calculator
+              </div>
+              <div class="card-body">
+                <form id="ratioForm">
+                  <div class="row mb-3">
+                    <div class="col-md-6">
+                      <label for="ratioA" class="form-label"
+                        >First Number</label
+                      >
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="ratioA"
+                        required
+                        placeholder="e.g. 20"
+                      />
+                    </div>
+                    <div class="col-md-6">
+                      <label for="ratioB" class="form-label"
+                        >Second Number</label
+                      >
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="ratioB"
+                        required
+                        placeholder="e.g. 60"
+                      />
+                    </div>
+                  </div>
+                  <button type="submit" class="btn btn-primary">
+                    Simplify Ratio
+                  </button>
+                </form>
+                <div id="ratioResult" class="result-box mt-3"></div>
+              </div>
+            </div>
+            <!-- 🧮 Discount Calculator -->
+            <div class="card shadow">
+              <div class="card-header bg-warning text-dark">
+                Discount Calculator
+              </div>
+              <div class="card-body">
+                <form id="discountForm">
+                  <div class="row mb-3">
+                    <div class="col-md-6">
+                      <label for="originalPrice" class="form-label"
+                        >Original Price (₹)</label
+                      >
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="originalPrice"
+                        required
+                        placeholder="e.g. 1000"
+                      />
+                    </div>
+                    <div class="col-md-6">
+                      <label for="discountPercent" class="form-label"
+                        >Discount (%)</label
+                      >
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="discountPercent"
+                        required
+                        placeholder="e.g. 20"
+                      />
+                    </div>
+                  </div>
+                  <button type="submit" class="btn btn-primary">
+                    Calculate Discount
+                  </button>
+                </form>
+                <div id="discountResult" class="result-box mt-3"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Others Tab-->
+        <div class="tab-pane fade" id="others" role="tabpanel">
+          <div class="otherCalculators">
+            <!-- Age Calculator -->
+            <div class="card shadow mb-4">
+              <div class="card-header bg-primary text-white">
+                Age Calculator
+              </div>
+              <div class="card-body">
+                <form id="ageForm">
+                  <div class="row mb-3">
+                    <div class="col-md-6">
+                      <label for="birthDate" class="form-label"
+                        >Select Your Birth Date</label
+                      >
+                      <input
+                        type="date"
+                        class="form-control"
+                        id="birthDate"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <button type="submit" class="btn btn-success">
+                    Calculate Age
+                  </button>
+                </form>
+                <div id="ageResult" class="result-box mt-3"></div>
+              </div>
+            </div>
+            <!-- Date Difference Calculator -->
+            <div class="card shadow mb-4">
+              <div class="card-header bg-dark text-white">
+                Date Difference Calculator
+              </div>
+              <div class="card-body">
+                <form id="dateDiffForm">
+                  <div class="row mb-3">
+                    <div class="col-md-6">
+                      <label for="startDate" class="form-label"
+                        >Start Date</label
+                      >
+                      <input
+                        type="date"
+                        class="form-control"
+                        id="startDate"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-6">
+                      <label for="endDate" class="form-label">End Date</label>
+                      <input
+                        type="date"
+                        class="form-control"
+                        id="endDate"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <button type="submit" class="btn btn-primary">
+                    Calculate Difference
+                  </button>
+                </form>
+                <div id="dateDiffResult" class="result-box mt-3"></div>
+              </div>
+            </div>
+            <!-- Countdown Timer Calculator -->
+            <div class="card shadow mb-4">
+              <div class="card-header bg-warning text-dark">
+                Countdown Timer
+              </div>
+              <div class="card-body">
+                <form id="countdownForm">
+                  <div class="row mb-3">
+                    <div class="col-md-6">
+                      <label for="countdownDate" class="form-label"
+                        >Target Date & Time</label
+                      >
+                      <input
+                        type="datetime-local"
+                        class="form-control"
+                        id="countdownDate"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <button type="submit" class="btn btn-primary">
+                    Start Countdown
+                  </button>
+                </form>
+                <div
+                  id="countdownDisplay"
+                  class="mt-3 fs-5 fw-bold text-primary"
+                ></div>
+              </div>
+            </div>
+            <!-- Random Number Generator -->
+            <div class="card shadow mb-4">
+              <div class="card-header bg-secondary text-white">
+                Random Number Generator
+              </div>
+              <div class="card-body">
+                <form id="randomNumberForm">
+                  <div class="row mb-3">
+                    <div class="col-md-6">
+                      <label for="minValue" class="form-label"
+                        >Minimum Value</label
+                      >
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="minValue"
+                        required
+                        placeholder="e.g. 1"
+                      />
+                    </div>
+                    <div class="col-md-6">
+                      <label for="maxValue" class="form-label"
+                        >Maximum Value</label
+                      >
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="maxValue"
+                        required
+                        placeholder="e.g. 100"
+                      />
+                    </div>
+                  </div>
+                  <button type="submit" class="btn btn-primary">
+                    Generate Random Number
+                  </button>
+                </form>
+                <div
+                  id="randomNumberResult"
+                  class="mt-3 fs-5 fw-bold text-success"
+                ></div>
+              </div>
+            </div>
+            <!-- Unit Converter -->
+            <div class="card shadow mb-4">
+              <div class="card-header bg-primary text-white">
+                Unit Converter (Length)
+              </div>
+              <div class="card-body">
+                <form id="unitConverterForm">
+                  <div class="row mb-3">
+                    <div class="col-md-4">
+                      <label for="inputLength" class="form-label"
+                        >Enter Length</label
+                      >
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="inputLength"
+                        required
+                        placeholder="e.g. 100"
+                      />
+                    </div>
+                    <div class="col-md-4">
+                      <label for="fromUnit" class="form-label">From Unit</label>
+                      <select class="form-select" id="fromUnit" required>
+                        <option value="meter">Meter</option>
+                        <option value="kilometer">Kilometer</option>
+                        <option value="centimeter">Centimeter</option>
+                        <option value="inch">Inch</option>
+                        <option value="foot">Foot</option>
+                        <option value="mile">Mile</option>
+                      </select>
+                    </div>
+                    <div class="col-md-4">
+                      <label for="toUnit" class="form-label">To Unit</label>
+                      <select class="form-select" id="toUnit" required>
+                        <option value="meter">Meter</option>
+                        <option value="kilometer">Kilometer</option>
+                        <option value="centimeter">Centimeter</option>
+                        <option value="inch">Inch</option>
+                        <option value="foot">Foot</option>
+                        <option value="mile">Mile</option>
+                      </select>
+                    </div>
+                  </div>
+                  <button type="submit" class="btn btn-success">Convert</button>
+                </form>
+                <div
+                  id="unitConverterResult"
+                  class="mt-3 fs-5 fw-bold text-primary"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center mt-5 p-3 bg-light">
+      <p class="mb-0">© 2025 Daily Life Calculators by Saikumar</p>
+    </footer>
+
+    <!-- Scripts-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/scripts.js"></script>
+  </body>
+</html>
